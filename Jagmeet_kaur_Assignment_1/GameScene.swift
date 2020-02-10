@@ -57,7 +57,7 @@ class GameScene: SKScene {
     private var spinnyNode : SKShapeNode?
     
    
-        
+          var playerPosition = CGPoint(x: 0, y: 0)
         // 1
     let player = SKSpriteNode(imageNamed: "player.jpg")
         var monstersDestroyed = 0
@@ -92,56 +92,33 @@ class GameScene: SKScene {
     
     
     
-    func touchDown(atPoint pos : CGPoint) {
-        if let n = self.spinnyNode?.copy() as! SKShapeNode? {
-            n.position = pos
-            n.strokeColor = SKColor.green
-            self.addChild(n)
-        }
-    }
-    
-    func touchMoved(toPoint pos : CGPoint) {
-        if let n = self.spinnyNode?.copy() as! SKShapeNode? {
-            n.position = pos
-            n.strokeColor = SKColor.blue
-            self.addChild(n)
-        }
-    }
-    
-    func touchUp(atPoint pos : CGPoint) {
-        if let n = self.spinnyNode?.copy() as! SKShapeNode? {
-            n.position = pos
-            n.strokeColor = SKColor.red
-            self.addChild(n)
-        }
-    }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if let label = self.label {
-            label.run(SKAction.init(named: "Pulse")!, withKey: "fadeInOut")
-            
-         
-            
-            
-        }
-        
-        for t in touches { self.touchDown(atPoint: t.location(in: self)) }
-    }
+     
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for t in touches { self.touchMoved(toPoint: t.location(in: self)) }
+        if let touch = touches.first {
+            let currentLocation = touch.location(in: self)
+            let previousLocation = touch.previousLocation(in: self)
+            
+            playerPosition = CGPoint(x: currentLocation.x - previousLocation.x, y: currentLocation.y - previousLocation.y)
+        }
     }
+    
     
     
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for t in touches { self.touchUp(atPoint: t.location(in: self)) }
+        playerPosition = CGPoint(x: 0, y: 0)
     }
-    
     
     override func update(_ currentTime: TimeInterval) {
-        // Called before each frame is rendered
+        let xPos = player.position.x + playerPosition.x
+        let yPos = player.position.y + playerPosition.y
+        let newPosition = CGPoint(x: xPos, y: yPos)
+       player.position = newPosition
+        playerPosition = CGPoint(x: 0, y:0)
     }
     
+
+        
 
     
     func random() -> CGFloat {
@@ -189,14 +166,17 @@ class GameScene: SKScene {
       let loseAction = SKAction.run() { [weak self] in
         guard let `self` = self else { return }
         let reveal = SKTransition.flipHorizontal(withDuration: 0.5)
-        let gameOverScene = GameOverScene(size: self.size, won: false)
-        self.view?.presentScene(gameOverScene, transition: reveal)
+      //  let gameOverScene = GameOverScene(size: self.size, won: false)
+       // self.view?.presentScene(gameOverScene, transition: reveal)
       }
       monster.run(SKAction.sequence([actionMove, loseAction, actionMoveDone]))
     }
 
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-      // 1 - Choose one of the touches to work with
+      
+       
+        
+        // 1 - Choose one of the touches to work with
       guard let touch = touches.first else {
         return
       }
@@ -257,8 +237,8 @@ class GameScene: SKScene {
         if monstersDestroyed > 30 {
            
           let reveal = SKTransition.flipHorizontal(withDuration: 0.5)
-          let gameOverScene = GameOverScene(size: self.size, won: true)
-          view?.presentScene(gameOverScene, transition: reveal)
+      //    let gameOverScene = GameOverScene(size: self.size, won: true)
+        //  view?.presentScene(gameOverScene, transition: reveal)
         }
     }
     
