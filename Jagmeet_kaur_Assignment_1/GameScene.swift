@@ -60,6 +60,7 @@ var       myLabel = SKLabelNode(fontNamed: "Chalkduster")
           var playerPosition = CGPoint(x: 0, y: 0)
         // 1
     let player = SKSpriteNode(imageNamed: "player.jpg")
+     let explode = SKSpriteNode(imageNamed: "explode.png")
         var monstersDestroyed = 0
     
 
@@ -70,6 +71,7 @@ var       myLabel = SKLabelNode(fontNamed: "Chalkduster")
           player.position = CGPoint(x: size.width * 0.10, y: size.height * 0.6)
           // 4
           addChild(player)
+        
          self.addChild(myLabel)
         physicsWorld.gravity = .zero
         physicsWorld.contactDelegate = self
@@ -226,29 +228,41 @@ var       myLabel = SKLabelNode(fontNamed: "Chalkduster")
       let actionMoveDone = SKAction.removeFromParent()
       projectile.run(SKAction.sequence([actionMove, actionMoveDone]))
     }
+    func fireadd() {
+          self.addChild(explode)
+       }
+       func fireremove() {
+          explode.removeFromParent()
+       }
     func projectileDidCollideWithMonster(projectile: SKSpriteNode, monster: SKSpriteNode) {
       print("Hit")
         
         run(SKAction.playSoundFileNamed("pew-pew-lei.caf", waitForCompletion: false))
         
       projectile.removeFromParent()
-        //addChild(destroy)
       monster.removeFromParent()
+        // fi
+        explode.position=monster.position
+        let myFunction = SKAction.run({()in self.fireadd()})
+        let wait = SKAction.wait(forDuration: 0.2)
+        let remove = SKAction.run({() in self.fireremove()})
+        self.run(SKAction.sequence([myFunction, wait, remove]))
+        
         monstersDestroyed += 1
         myLabel.text = "\("Score:")\(monstersDestroyed)"
                       myLabel.fontColor = SKColor.black
                        myLabel.fontSize = 30
-                       myLabel.position = CGPoint(x: self.size.width/4, y: self.size.height/2)
+        myLabel.position = CGPoint(x: self.size.width/4, y: self.size.height/1.12)
                      
         if monstersDestroyed >= 10 {
-           let reveal = SKTransition.flipHorizontal(withDuration: 0.5)
+           let reveal = SKTransition.flipVertical(withDuration: 1.5)
           let gameOverScene = GameOverScene(size: self.size, won: true)
         view?.presentScene(gameOverScene, transition: reveal)
         }
         print(monstersDestroyed)
         
       
-         //myLabel.removeFromParent()
+         
        
     }
     

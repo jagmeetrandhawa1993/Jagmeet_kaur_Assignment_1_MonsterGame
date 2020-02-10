@@ -12,8 +12,7 @@ import SpriteKit
 class GameOverScene: SKScene {
   init(size: CGSize, won:Bool) {
     super.init(size: size)
-    
-    // 1
+
     backgroundColor = SKColor.white
     
     // 2
@@ -33,15 +32,27 @@ class GameOverScene: SKScene {
       SKAction.run() { [weak self] in
         // 5
         guard let `self` = self else { return }
-        let reveal = SKTransition.flipHorizontal(withDuration: 0.5)
+        //let reveal = SKTransition.flipHorizontal(withDuration: 0.5)
         //let scene = GameScene(size: size)
      //   self.view?.presentScene(scene, transition:reveal)
-      }
+        }
       ]))
+
    }
   
   // 6
   required init(coder aDecoder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
   }
+    
+/*    func changeScene(){
+        let secondScene = GameScene(size: self.size)
+        secondScene.scaleMode = scaleMode
+
+        secondScene.object = somethingInFirstSceneThatNeedToBePassed //here we do the passing
+
+        let transition = SKTransition.fadeWithDuration(0.5)
+        self.view?.presentScene(secondScene, transition: transition)
+    }
+ */
 }

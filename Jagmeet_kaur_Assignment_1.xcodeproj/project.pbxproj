@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D4CE81A23F1E80900B713F3 /* explode.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D4CE81923F1E80900B713F3 /* explode.png */; };
 		0D9681C823ECD2B600AB0F9A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9681C723ECD2B600AB0F9A /* AppDelegate.swift */; };
 		0D9681CA23ECD2B600AB0F9A /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 0D9681C923ECD2B600AB0F9A /* GameScene.sks */; };
 		0D9681CC23ECD2B600AB0F9A /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 0D9681CB23ECD2B600AB0F9A /* Actions.sks */; };
@@ -25,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0D4CE81923F1E80900B713F3 /* explode.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = explode.png; sourceTree = "<group>"; };
 		0D9681C423ECD2B600AB0F9A /* Jagmeet_kaur_Assignment_1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Jagmeet_kaur_Assignment_1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D9681C723ECD2B600AB0F9A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0D9681C923ECD2B600AB0F9A /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 				0D9681CF23ECD2B600AB0F9A /* GameViewController.swift */,
 				0D9681D123ECD2B600AB0F9A /* Main.storyboard */,
 				0D9681D423ECD2B800AB0F9A /* Assets.xcassets */,
+				0D4CE81923F1E80900B713F3 /* explode.png */,
 				0D9681D623ECD2B800AB0F9A /* LaunchScreen.storyboard */,
 				0D9681D923ECD2B800AB0F9A /* Info.plist */,
 				0D9681EA23ECE9DF00AB0F9A /* GameOverScene.swift */,
@@ -171,6 +174,7 @@
 				0D9681ED23ECF66F00AB0F9A /* black.jpg in Resources */,
 				0D9681E223ECD4B300AB0F9A /* player.jpg in Resources */,
 				0D9681E023ECD4A500AB0F9A /* fire.png in Resources */,
+				0D4CE81A23F1E80900B713F3 /* explode.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
