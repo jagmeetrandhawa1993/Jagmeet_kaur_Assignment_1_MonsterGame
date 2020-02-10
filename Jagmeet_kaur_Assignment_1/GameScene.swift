@@ -52,11 +52,11 @@ extension CGPoint {
 
 
 class GameScene: SKScene {
-    
+var       myLabel = SKLabelNode(fontNamed: "Chalkduster")
     private var label : SKLabelNode?
     private var spinnyNode : SKShapeNode?
     
-   
+          
           var playerPosition = CGPoint(x: 0, y: 0)
         // 1
     let player = SKSpriteNode(imageNamed: "player.jpg")
@@ -70,7 +70,7 @@ class GameScene: SKScene {
           player.position = CGPoint(x: size.width * 0.10, y: size.height * 0.6)
           // 4
           addChild(player)
-        
+         self.addChild(myLabel)
         physicsWorld.gravity = .zero
         physicsWorld.contactDelegate = self
         
@@ -87,6 +87,9 @@ class GameScene: SKScene {
         backgroundMusic.autoplayLooped = true
         addChild(backgroundMusic)
     
+      
+               
+              
     }
         
     
@@ -226,20 +229,27 @@ class GameScene: SKScene {
     func projectileDidCollideWithMonster(projectile: SKSpriteNode, monster: SKSpriteNode) {
       print("Hit")
         
-         
-        
         run(SKAction.playSoundFileNamed("pew-pew-lei.caf", waitForCompletion: false))
         
       projectile.removeFromParent()
         //addChild(destroy)
       monster.removeFromParent()
         monstersDestroyed += 1
-        if monstersDestroyed > 30 {
-           
-          let reveal = SKTransition.flipHorizontal(withDuration: 0.5)
-      //    let gameOverScene = GameOverScene(size: self.size, won: true)
-        //  view?.presentScene(gameOverScene, transition: reveal)
+        myLabel.text = "\("Score:")\(monstersDestroyed)"
+                      myLabel.fontColor = SKColor.black
+                       myLabel.fontSize = 30
+                       myLabel.position = CGPoint(x: self.size.width/4, y: self.size.height/2)
+                     
+        if monstersDestroyed >= 10 {
+           let reveal = SKTransition.flipHorizontal(withDuration: 0.5)
+          let gameOverScene = GameOverScene(size: self.size, won: true)
+        view?.presentScene(gameOverScene, transition: reveal)
         }
+        print(monstersDestroyed)
+        
+      
+         //myLabel.removeFromParent()
+       
     }
     
     
