@@ -94,11 +94,6 @@ var       myLabel = SKLabelNode(fontNamed: "Chalkduster")
               
     }
         
-    
-    
-    
-     
-    
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let touch = touches.first {
             let currentLocation = touch.location(in: self)

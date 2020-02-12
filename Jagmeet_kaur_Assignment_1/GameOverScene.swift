@@ -45,14 +45,5 @@ class GameOverScene: SKScene {
     fatalError("init(coder:) has not been implemented")
   }
     
-/*    func changeScene(){
-        let secondScene = GameScene(size: self.size)
-        secondScene.scaleMode = scaleMode
-
-        secondScene.object = somethingInFirstSceneThatNeedToBePassed //here we do the passing
-
-        let transition = SKTransition.fadeWithDuration(0.5)
-        self.view?.presentScene(secondScene, transition: transition)
-    }
- */
+ 
 }
