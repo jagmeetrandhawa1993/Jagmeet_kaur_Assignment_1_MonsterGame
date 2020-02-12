@@ -43,5 +43,12 @@ class MenuViewController: UIViewController {
         
     }
     
+    @IBAction func quit(_ sender: UIButton) {
+        UIControl().sendAction(#selector(URLSessionTask.suspend), to: UIApplication.shared, for: nil)
+        // terminaing app in background
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+            exit(-1)
+    })
     
+}
 }

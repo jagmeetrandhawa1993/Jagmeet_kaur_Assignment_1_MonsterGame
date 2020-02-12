@@ -49,33 +49,24 @@ extension CGPoint {
   }
 }
 
-
-
 class GameScene: SKScene {
 var       myLabel = SKLabelNode(fontNamed: "Chalkduster")
     private var label : SKLabelNode?
     private var spinnyNode : SKShapeNode?
     
           
-          var playerPosition = CGPoint(x: 0, y: 0)
-        // 1
+    var playerPosition = CGPoint(x: 0, y: 0)
     let player = SKSpriteNode(imageNamed: "player.jpg")
-     let explode = SKSpriteNode(imageNamed: "explode.png")
-        var monstersDestroyed = 0
-    
-
+    let explode = SKSpriteNode(imageNamed: "explode.png")
+    var monstersDestroyed = 0
     override func didMove(to view: SKView) {
-          // 2
           backgroundColor = SKColor.white
-          // 3
           player.position = CGPoint(x: size.width * 0.10, y: size.height * 0.6)
-          // 4
           addChild(player)
         
          self.addChild(myLabel)
         physicsWorld.gravity = .zero
         physicsWorld.contactDelegate = self
-        
         
     run(SKAction.repeatForever(
       SKAction.sequence([
@@ -83,17 +74,10 @@ var       myLabel = SKLabelNode(fontNamed: "Chalkduster")
         SKAction.wait(forDuration: 1.0)
         ])
     ))
-    
-        
         let backgroundMusic = SKAudioNode(fileNamed: "background-music-aac.caf")
         backgroundMusic.autoplayLooped = true
         addChild(backgroundMusic)
-    
-      
-               
-              
     }
-        
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let touch = touches.first {
             let currentLocation = touch.location(in: self)
@@ -102,13 +86,9 @@ var       myLabel = SKLabelNode(fontNamed: "Chalkduster")
             playerPosition = CGPoint(x: currentLocation.x - previousLocation.x, y: currentLocation.y - previousLocation.y)
         }
     }
-    
-    
-    
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
         playerPosition = CGPoint(x: 0, y: 0)
     }
-    
     override func update(_ currentTime: TimeInterval) {
         let xPos = player.position.x + playerPosition.x
         let yPos = player.position.y + playerPosition.y
@@ -116,10 +96,6 @@ var       myLabel = SKLabelNode(fontNamed: "Chalkduster")
        player.position = newPosition
         playerPosition = CGPoint(x: 0, y:0)
     }
-    
-
-        
-
     
     func random() -> CGFloat {
       return CGFloat(Float(arc4random()) / 0xFFFFFFFF)
@@ -130,7 +106,6 @@ var       myLabel = SKLabelNode(fontNamed: "Chalkduster")
     }
 
     func addMonster() {
-      
         // Create sprite
           let monster = SKSpriteNode(imageNamed: "monster")
        
@@ -139,8 +114,6 @@ var       myLabel = SKLabelNode(fontNamed: "Chalkduster")
           monster.physicsBody?.categoryBitMask = PhysicsCategory.monster // 3
           monster.physicsBody?.contactTestBitMask = PhysicsCategory.projectile // 4
           monster.physicsBody?.collisionBitMask = PhysicsCategory.none // 5
-        
-           
           // Determine where to spawn the monster along the x axis
         let actualx = random(min: monster.size.width * 3.0, max: size.width)
            
@@ -159,10 +132,7 @@ var       myLabel = SKLabelNode(fontNamed: "Chalkduster")
                           duration: TimeInterval(actualDuration))
           let actionMoveDone = SKAction.removeFromParent()
           monster.run(SKAction.sequence([actionMove, actionMoveDone]))
-           
-         
-      
-
+    
       let loseAction = SKAction.run() { [weak self] in
         guard let `self` = self else { return }
         let reveal = SKTransition.flipHorizontal(withDuration: 0.5)
@@ -173,15 +143,10 @@ var       myLabel = SKLabelNode(fontNamed: "Chalkduster")
     }
 
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-      
-       
-        
-        // 1 - Choose one of the touches to work with
+      // 1 - Choose one of the touches to work with
       guard let touch = touches.first else {
         return
       }
-        
-        
         
       let touchLocation = touch.location(in: self)
       
@@ -196,10 +161,6 @@ var       myLabel = SKLabelNode(fontNamed: "Chalkduster")
         projectile.physicsBody?.collisionBitMask = PhysicsCategory.none
         projectile.physicsBody?.usesPreciseCollisionDetection = true
       
-     //  var destroy = SKSpriteNode(imageNamed: "black.jpg")
-      //  destroy.position = projectile.position
-      //  destroy.physicsBody = SKPhysicsBody(circleOfRadius: projectile.size.width/2)
-        
       // 3 - Determine offset of location to projectile
       let offset = touchLocation - projectile.position
       
@@ -255,17 +216,7 @@ var       myLabel = SKLabelNode(fontNamed: "Chalkduster")
         view?.presentScene(gameOverScene, transition: reveal)
         }
         print(monstersDestroyed)
-        
-      
-         
-       
     }
-    
-    
-    
-    
-    
-    
 }
 extension GameScene: SKPhysicsContactDelegate {
 

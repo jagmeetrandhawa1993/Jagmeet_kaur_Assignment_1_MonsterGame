@@ -15,13 +15,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="start page" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IGd-Wd-NAJ">
-                                <rect key="frame" x="112" y="364" width="188" height="168"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Game" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IGd-Wd-NAJ">
+                                <rect key="frame" x="79" y="283" width="257" height="168"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="45"/>
                                 <color key="textColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="player.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="IJE-Aa-Cxn">
+                                <rect key="frame" x="150" y="407" width="115" height="83"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="dDZ-1p-bdD"/>
@@ -44,7 +48,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Izf-gL-tYQ">
-                                <rect key="frame" x="78" y="133" width="266" height="34"/>
+                                <rect key="frame" x="78" y="133" width="266" height="85"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
@@ -54,20 +58,8 @@
                                     <action selector="startgame:" destination="aof-df-3MU" eventType="touchUpInside" id="jC1-mK-6F9"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NYp-Lt-GR5">
-                                <rect key="frame" x="78" y="295" width="266" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <state key="normal" title="Add Player"/>
-                                <connections>
-                                    <action selector="addplayer:" destination="aof-df-3MU" eventType="touchUpInside" id="4lg-rA-TgD"/>
-                                    <action selector="startgame:" destination="aof-df-3MU" eventType="touchUpInside" id="gQN-f9-Ajb"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nvg-f3-uer">
-                                <rect key="frame" x="78" y="226" width="266" height="35"/>
+                                <rect key="frame" x="78" y="226" width="266" height="81"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
@@ -78,15 +70,44 @@
                                     <action selector="startgame:" destination="aof-df-3MU" eventType="touchUpInside" id="C0T-mr-s2a"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YUv-Tu-hHC">
+                                <rect key="frame" x="78" y="391" width="266" height="89"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <state key="normal" title="Quit"/>
+                                <connections>
+                                    <action selector="addplayer:" destination="aof-df-3MU" eventType="touchUpInside" id="QHG-fM-4IL"/>
+                                    <action selector="quit:" destination="aof-df-3MU" eventType="touchUpInside" id="RVl-CG-qKl"/>
+                                    <action selector="startgame:" destination="aof-df-3MU" eventType="touchUpInside" id="VmN-aK-K1m"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NYp-Lt-GR5">
+                                <rect key="frame" x="78" y="315" width="266" height="68"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <state key="normal" title="Add Player"/>
+                                <connections>
+                                    <action selector="addplayer:" destination="aof-df-3MU" eventType="touchUpInside" id="4lg-rA-TgD"/>
+                                    <action selector="startgame:" destination="aof-df-3MU" eventType="touchUpInside" id="gQN-f9-Ajb"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="tvZ-fn-z7U"/>
                     </view>
                     <navigationItem key="navigationItem" id="wEL-we-YUm"/>
+                    <connections>
+                        <segue destination="VoL-h9-LPL" kind="show" identifier="to_addplayer" id="9zc-5s-jJc"/>
+                        <segue destination="YUM-xQ-3EE" kind="show" identifier="to_scoreboard" id="bq7-tv-dSG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MOs-3T-AWB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="355" y="858"/>
+            <point key="canvasLocation" x="353.62318840579712" y="857.8125"/>
         </scene>
         <!--Add Player View Controller-->
         <scene sceneID="81U-p4-44T">
@@ -117,7 +138,9 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="Y2n-ac-lZG"/>
                     </view>
+                    <navigationItem key="navigationItem" id="yBH-R1-9Nf"/>
                 </viewController>
+                <navigationItem id="f1P-Bp-NMA"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uPO-Dv-6tB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1337.68115942029" y="857.8125"/>
@@ -141,10 +164,11 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="KMn-7F-hzK"/>
                     </view>
+                    <navigationItem key="navigationItem" id="Zbm-r0-8gW"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VGr-IL-h9o" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2278.2608695652175" y="857.8125"/>
+            <point key="canvasLocation" x="-555" y="858"/>
         </scene>
         <!--Game View Controller-->
         <scene sceneID="tXr-a1-R10">
@@ -180,4 +204,7 @@
             <point key="canvasLocation" x="-555.07246376811599" y="114.50892857142857"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="player.jpg" width="50" height="50"/>
+    </resources>
 </document>
